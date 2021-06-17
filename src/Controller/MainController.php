@@ -13,8 +13,18 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
+
+        $article1 = [
+            'title' => 'Un titre 1',
+            'text' => 'Du contenu avec un peu de texte'
+        ];
+        $article2 = [
+            'title' => 'Un titre 2',
+            'text' => 'Du contenu avec un peu de texte'
+        ];
+        $articles = [$article1, $article2];
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'articles' => $articles,
         ]);
     }
 }

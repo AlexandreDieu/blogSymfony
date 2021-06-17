@@ -1,0 +1,22 @@
+<main>
+	<h1></h1>
+	<p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Titre</th>
+					<th>Texte</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for article in articles %}
+                    <tr>
+                        <td>{{ article.title}}</td>
+                        <td>{{ article.text}}</td>
+                    </tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</p>
+</main>
+
