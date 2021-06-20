@@ -30,6 +30,7 @@ class MainController extends AbstractController
     {
         return $this->render('main/_show.html.twig', [
             'article' => $article,
+
         ]);
     }
 }
