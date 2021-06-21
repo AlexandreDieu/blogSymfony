@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
 	<article>
 		<h2>{{ article.title }}</h2>
 		<div class="metadata">
@@ -15,23 +14,23 @@
 		<div class="content">
 			<img src="{{ article.image }}" alt="">
 			<p>
-				{{ article.content | raw}}
+				{{ article.content }}
 			</p>
 		</div>
 	</article>
-
-	<section id="commentaires">
+	<hr>
+	<article class="w-50 m-auto">{{ form(form, { 'attr': {'placeholder': "Comment"} })}}</article>
+	<section id="comments">
 		{% for comment in article.comments %}
 			<div class="row border-top border-primary">
 				<div class="col-3">
-					{{ comment.author }}
+					{{ comment.user.email }}
 					(<small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>)
 				</div>
 				<div class="col">
-					{{ comment.content  | raw}}
+					{{ comment.content }}
 				</div>
 			</div>
 		{% endfor %}
 	</section>
-
 {% endblock %}

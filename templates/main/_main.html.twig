@@ -4,23 +4,29 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Titre</th>
+					<th>Détails</th>
 					<th>Texte</th>
 					<th>Image</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="table table-bordered">
 				{% for article in articles %}
 					<tr>
 						<td>
-						<p>{{ article.title}}</p>
-						<p>							{{ article.createdAt | date('d/m/Y') }}
-							à
-							{{ article.createdAt | date('H:i')}}</p>
+							<p>{{ article.title}}</p>
+							<p>
+								{{ article.createdAt | date('d/m/Y') }}
+								à
+								{{ article.createdAt | date('H:i')}}
+							</p>
+							<p>{{ article.comments | length ~ " commentaires"}}</p>
+
 						</td>
 						<td>
 							<p>{{ article.content | length > 200 ? article.content | slice (0,200) ~ '...' : article.content }}</p>
-							<p><a href="{{ path('show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a></p>
+							<p>
+								<a href="{{ path('show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
+							</p>
 						</td>
 						<td>
 							<img src="{{ article.image}}" alt="">

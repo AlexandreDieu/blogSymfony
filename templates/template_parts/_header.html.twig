@@ -16,6 +16,20 @@
 					</li>
 				</ul>
 			</div>
+			<div class="navbar-nav me-auto">
+				{% if app.user %}
+					<div class="nav-item">
+						<p class="nav-link">{{ "Bonjour, " ~ app.user.email }}</p>
+					</div>
+					<div class="nav-item">
+						<a href="{{ path('app_logout') }}" class="btn btn-outline-danger" id="navbarColor02">Déconnexion</a>
+					</div>
+				{% else %}
+					<div class="nav-item">
+						<a href="{{ path('app_login') }}" class="btn btn-outline-success">Connexion</a>
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</navclass="container">
 </header>
